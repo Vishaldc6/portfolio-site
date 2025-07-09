@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
-import { Menu, X, ChevronDown, Download} from 'lucide-react';
+import { Menu, X, ChevronDown} from 'lucide-react';
 import { Projects } from './sections';
 import { About } from './about';
 import { Contact } from './contact';
@@ -161,7 +161,7 @@ const Hero = () => {
             >
               Get In Touch
             </motion.a>
-            <motion.a
+            {/* <motion.a
               href="/Vishal_Chaudhary_Resume.pdf"
               download="Vishal_Chaudhary_Resume.pdf"
               className="bg-gradient-to-r from-yellow-400 to-orange-400 text-gray-900 px-8 py-3 rounded-full font-semibold hover:shadow-lg transition-all text-center flex items-center justify-center"
@@ -169,7 +169,7 @@ const Hero = () => {
               whileTap={{ scale: 0.95 }}
             >
               <Download className="w-4 h-4 mr-2" /> Download Resume
-            </motion.a>
+            </motion.a> */}
             <motion.a
               href="#about"
               className="border-2 border-white text-white px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-gray-900 transition-all text-center"
