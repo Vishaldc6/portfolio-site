@@ -3,8 +3,8 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
-import { Menu, X, ChevronDown} from 'lucide-react';
-import { Projects } from './sections';
+import { Menu, X, ChevronDown } from 'lucide-react';
+import { Projects, MiniProjects } from './sections';
 import { About } from './about';
 import { Contact } from './contact';
 import { Experience } from './experience';
@@ -16,15 +16,32 @@ const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
+  const navItems = ['Home', 'Skills', 'Experience', 'Projects', 'Education', 'About', 'Contact'];
+
+  const [activeSection, setActiveSection] = useState('home');
+
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 100);
+
+      const sections = navItems.map(item => item.toLowerCase());
+      let current = '';
+      for (const section of sections) {
+        const element = document.getElementById(section);
+        if (element) {
+          const rect = element.getBoundingClientRect();
+          if (rect.top <= 200) {
+            current = section;
+          }
+        }
+      }
+      if (current) {
+        setActiveSection(current);
+      }
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  const navItems = ['Home', 'Skills', 'Experience', 'Projects', 'Education', 'About', 'Contact'];
+  }, [navItems]);
 
   return (
     <motion.header 
@@ -49,10 +66,10 @@ const Header = () => {
             <li key={item}>
               <a 
                 href={`#${item.toLowerCase()}`}
-                className="text-gray-700 hover:text-purple-600 font-medium transition-colors relative group"
+                className={`text-gray-700 font-medium transition-colors relative group ${activeSection === item.toLowerCase() ? 'text-purple-600' : 'hover:text-purple-600'}`}
               >
                 {item}
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-purple-600 to-blue-600 transition-all group-hover:w-full"></span>
+                <span className={`absolute -bottom-1 left-0 h-0.5 bg-gradient-to-r from-purple-600 to-blue-600 transition-all ${activeSection === item.toLowerCase() ? 'w-full' : 'w-0 group-hover:w-full'}`}></span>
               </a>
             </li>
           ))}
@@ -80,7 +97,7 @@ const Header = () => {
                   <li key={item}>
                     <a
                       href={`#${item.toLowerCase()}`}
-                      className="block px-6 py-2 text-gray-700 hover:text-purple-600 hover:bg-gray-50"
+                      className={`block px-6 py-2 ${activeSection === item.toLowerCase() ? 'text-purple-600 bg-gray-50 font-medium' : 'text-gray-700 hover:text-purple-600 hover:bg-gray-50'}`}
                       onClick={() => setIsMobileMenuOpen(false)}
                     >
                       {item}
@@ -97,6 +114,16 @@ const Header = () => {
 };
 
 const Hero = () => {
+  const roles = ["Software Developer", "React Native Developer", "Web Developer"];
+  const [roleIndex, setRoleIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setRoleIndex((prev) => (prev + 1) % roles.length);
+    }, 3000);
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <section id="home" className="min-h-screen flex items-center justify-center bg-gradient-to-br from-purple-600 via-blue-600 to-purple-800 text-white relative overflow-hidden">
       {/* Animated background elements */}
@@ -138,14 +165,25 @@ const Hero = () => {
             Hi, I&apos;m <span className="bg-gradient-to-r from-yellow-400 to-orange-400 bg-clip-text text-transparent">Vishal Chaudhary</span>
           </motion.h1>
           
-          <motion.h2 
-            className="text-2xl md:text-3xl mb-6 text-white/90"
+          <motion.div 
+            className="text-2xl md:text-3xl mb-6 text-white/90 h-10 flex items-center"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.8 }}
           >
-            React Native Developer
-          </motion.h2>
+            <AnimatePresence mode="wait">
+              <motion.span
+                key={roleIndex}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: 0.4 }}
+                className="inline-block"
+              >
+                {roles[roleIndex]}
+              </motion.span>
+            </AnimatePresence>
+          </motion.div>
           
           <motion.div 
             className="flex flex-col sm:flex-row gap-4"
@@ -224,6 +262,7 @@ export default function Portfolio() {
       <Skills />
       <Experience />
       <Projects />
+      <MiniProjects />
       <Education />
       <About />
       <Contact />

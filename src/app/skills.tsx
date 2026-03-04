@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { AnimatedSection } from '@/components/AnimatedSection';
-import { Code, Database, Globe, Smartphone, Cloud, Zap, CreditCard, Shield, Bell, MapPin, GitBranch, Rocket, Apple, Play, ChevronUp, Flame } from 'lucide-react';
+import { Code, Database, Globe, Smartphone, Cloud, Zap, CreditCard, Shield, Bell, MapPin, GitBranch, Rocket, Apple, Play, ChevronUp, Flame, ZapIcon } from 'lucide-react';
 
 interface SkillItem {
   name: string;
@@ -30,9 +30,10 @@ export const Skills: React.FC = () => {
       title: 'Backend & Cloud',
       skills: [
         { name: 'Firebase', icon: <Flame className="w-8 h-8" /> },
-        { name: 'Cloud Functions', icon: <Cloud className="w-8 h-8" /> },
+        { name: 'Supabase', icon: <ZapIcon className="w-8 h-8" /> },
+        // { name: 'Cloud Functions', icon: <Cloud className="w-8 h-8" /> },
         { name: 'REST APIs', icon: <Database className="w-8 h-8" /> },
-        { name: 'Axios', icon: <Code className="w-8 h-8" /> },
+        // { name: 'Axios', icon: <Code className="w-8 h-8" /> },
         { name: 'WebSocket', icon: <Database className="w-8 h-8" /> },
       ]
     },
@@ -40,7 +41,7 @@ export const Skills: React.FC = () => {
       title: 'Payment & Integration',
       skills: [
         { name: 'Stripe', icon: <CreditCard className="w-8 h-8" /> },
-        { name: 'Square Payment', icon: <CreditCard className="w-8 h-8" /> },
+        // { name: 'Square Payment', icon: <CreditCard className="w-8 h-8" /> },
         { name: 'Razorpay', icon: <CreditCard className="w-8 h-8" /> },
         { name: 'Social Auth', icon: <Shield className="w-8 h-8" /> },
         { name: 'Push Notifications', icon: <Bell className="w-8 h-8" /> },

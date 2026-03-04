@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
-import React from 'react';
-import { AnimatedSection } from '@/components/AnimatedSection';
-import { Calendar, MapPin, Award, MonitorSmartphone } from 'lucide-react';
+import React from "react";
+import { AnimatedSection } from "@/components/AnimatedSection";
+import { Calendar, MapPin, Award, MonitorSmartphone } from "lucide-react";
 
 interface Experience {
   title: string;
@@ -15,7 +15,15 @@ interface Experience {
 }
 
 export const Experience = () => {
-    const experiences: Experience[] = [
+  const experiences: Experience[] = [
+    {
+      title: "Software Developer",
+      company: "La Net Team",
+      location: "Surat, Gujarat, India",
+      period: "Jan 2026 - Present",
+      description: [],
+      technologies: ["React JS", "Next JS", "Docker", "Kubernetes"],
+    },
     {
       title: "React Native Developer",
       company: "Omniminds Consulting",
@@ -24,34 +32,49 @@ export const Experience = () => {
       description: [
         "Developed mobile applications using React Native and modern JavaScript frameworks",
         "Collaborated with cross-functional teams to deliver high-quality mobile solutions",
-        "Implemented best practices in mobile app development and code optimization"
+        "Implemented best practices in mobile app development and code optimization",
       ],
-      technologies: ["React Native", "JavaScript", "TypeScript", "Redux-toolkit", "REST API", "Razorpay"],
+      technologies: [
+        "React Native",
+        "JavaScript",
+        "TypeScript",
+        "Redux-toolkit",
+        "REST API",
+        "Razorpay",
+      ],
       achievements: [
         "Successfully delivered mobile applications within tight deadlines",
         "Maintained clean and scalable code architecture",
         "Contributed to remote team collaboration and development processes",
-        "Created comprehensive Salon Management system with three interconnected apps"
-      ]
+        "Created comprehensive Salon Management system with three interconnected apps",
+      ],
     },
     {
       title: "React Native Developer",
       company: "Tagline Infotech LLP",
-      location: "Surat, India",
+      location: "Surat, Gujarat, India",
       period: "Nov 2022 - Jun 2024",
       description: [
         "Developed and maintained multiple React Native applications for various industries",
         "Integrated third-party payment systems including Stripe, Square, and Razorpay",
         "Implemented complex features like real-time notifications, maps integration, and social authentication",
-        "Built cross-platform mobile applications using Expo and React Native CLI"
+        "Built cross-platform mobile applications using Expo and React Native CLI",
       ],
-      technologies: ["React Native", "Expo", "Redux", "Firebase", "TypeScript", "JavaScript", "Payment Gateways"],
+      technologies: [
+        "React Native",
+        "Expo",
+        "Redux",
+        "Firebase",
+        "TypeScript",
+        "JavaScript",
+        "Payment Gateways",
+      ],
       achievements: [
         "Successfully delivered Employee Schedule Management App with Stripe integration",
         "Built Job Management App with Square payment integration",
-        "Developed Dental App with QR code integration and multiple app clones using Expo EAS"
-      ]
-    }
+        "Developed Dental App with QR code integration and multiple app clones using Expo EAS",
+      ],
+    },
   ];
 
   return (
@@ -59,10 +82,13 @@ export const Experience = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <AnimatedSection>
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Work Experience</h2>
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+              Work Experience
+            </h2>
             <div className="w-24 h-1 bg-blue-600 mx-auto mb-6"></div>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              My professional journey building impactful solutions and growing as a developer
+              My professional journey building impactful solutions and growing
+              as a developer
             </p>
           </div>
         </AnimatedSection>
@@ -74,24 +100,32 @@ export const Experience = () => {
 
           {experiences.map((exp, index) => (
             <AnimatedSection key={index}>
-              <div className={`relative flex items-center mb-12 ${
-                index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
-              }`}>
+              <div
+                className={`relative flex items-center mb-12 ${
+                  index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
+                }`}
+              >
                 {/* Timeline dot */}
                 <div className="absolute md:left-1/2 w-10 h-10 bg-white border-4 border-blue-500 rounded-full transform md:-translate-x-5 z-10 flex items-center justify-center">
-                    <MonitorSmartphone className="w-5 h-5 text-blue-500" />
-                  </div>
+                  <MonitorSmartphone className="w-5 h-5 text-blue-500" />
+                </div>
 
                 {/* Content */}
-                <div className={`ml-12 md:ml-0 md:w-1/2 ${
-                  index % 2 === 0 ? 'md:pr-12' : 'md:pl-12'
-                }`}>
+                <div
+                  className={`ml-12 md:ml-0 md:w-1/2 ${
+                    index % 2 === 0 ? "md:pr-12" : "md:pl-12"
+                  }`}
+                >
                   <div className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 p-6 border border-gray-100">
                     {/* Header */}
                     <div className="mb-4">
-                      <h3 className="text-xl font-bold text-gray-900 mb-1">{exp.title}</h3>
+                      <h3 className="text-xl font-bold text-gray-900 mb-1">
+                        {exp.title}
+                      </h3>
                       <div className="flex flex-wrap items-center gap-4 text-sm text-gray-600 mb-2">
-                        <span className="font-medium text-blue-600">{exp.company}</span>
+                        <span className="font-medium text-blue-600">
+                          {exp.company}
+                        </span>
                         <span className="flex items-center gap-1">
                           <MapPin className="w-4 h-4" />
                           {exp.location}
@@ -107,7 +141,10 @@ export const Experience = () => {
                     <div className="mb-4">
                       <ul className="space-y-2">
                         {exp.description.map((item, i) => (
-                          <li key={i} className="flex items-start gap-2 text-gray-700">
+                          <li
+                            key={i}
+                            className="flex items-start gap-2 text-gray-700"
+                          >
                             <span className="w-1.5 h-1.5 bg-blue-500 rounded-full mt-2 flex-shrink-0"></span>
                             {item}
                           </li>
@@ -134,11 +171,16 @@ export const Experience = () => {
                       <div className="border-t border-gray-100 pt-4">
                         <div className="flex items-center gap-2 mb-2">
                           <Award className="w-4 h-4 text-yellow-500" />
-                          <span className="font-semibold text-gray-900">Key Achievements</span>
+                          <span className="font-semibold text-gray-900">
+                            Key Achievements
+                          </span>
                         </div>
                         <ul className="space-y-1">
                           {exp.achievements.map((achievement, i) => (
-                            <li key={i} className="flex items-start gap-2 text-sm text-gray-600">
+                            <li
+                              key={i}
+                              className="flex items-start gap-2 text-sm text-gray-600"
+                            >
                               <span className="w-1 h-1 bg-yellow-500 rounded-full mt-2 flex-shrink-0"></span>
                               {achievement}
                             </li>
@@ -165,7 +207,9 @@ export const Experience = () => {
               <div className="text-gray-600">Projects Completed</div>
             </div>
             <div className="text-center p-6 bg-gradient-to-br from-orange-50 to-red-50 rounded-xl">
-              <div className="text-3xl font-bold text-orange-600 mb-2">100%</div>
+              <div className="text-3xl font-bold text-orange-600 mb-2">
+                100%
+              </div>
               <div className="text-gray-600">Client Satisfaction</div>
             </div>
           </div>

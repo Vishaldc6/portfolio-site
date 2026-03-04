@@ -1,6 +1,6 @@
 import type { NextConfig } from "next";
 
-//https://portfolio-site-gamma-steel.vercel.app/
+//https://vishal-chaudhary-portfolio-site.vercel.app/
 
 const nextConfig: NextConfig = {
   /* config options here */  
@@ -8,7 +8,7 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'portfolio-site-gamma-steel.vercel.app',
+        hostname: 'vishal-chaudhary-portfolio-site.vercel.app',
         port: '',
         pathname: '/**',
       },
