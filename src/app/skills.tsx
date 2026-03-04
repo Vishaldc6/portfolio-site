@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { AnimatedSection } from '@/components/AnimatedSection';
-import { Code, Database, Globe, Smartphone, Cloud, Zap, CreditCard, Shield, Bell, MapPin, GitBranch, Rocket, Apple, Play, ChevronUp, Flame, ZapIcon } from 'lucide-react';
+import { Code, Database, Globe, Smartphone, Zap, CreditCard, Shield, Bell, MapPin, GitBranch, Rocket, Apple, Play, ChevronUp, Flame, ZapIcon } from 'lucide-react';
 
 interface SkillItem {
   name: string;

@@ -3,9 +3,10 @@
 
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { Apple, Github, Monitor, Play, CalendarCheck, BriefcaseBusiness, Stethoscope, Scissors, Building2, Gamepad2, Worm } from 'lucide-react';
+import { Apple, Github, Monitor, Play, CalendarCheck, BriefcaseBusiness, Stethoscope, Scissors, Building2, Gamepad2, Worm, LucideProps } from 'lucide-react';
+import { ForwardRefExoticComponent, RefAttributes } from 'react';
 
-const iconMap: Record<string, any> = {
+const iconMap: Record<string, ForwardRefExoticComponent<Omit<LucideProps, "ref"> & RefAttributes<SVGSVGElement>>> = {
   "calender-check": CalendarCheck,
   "breifcase-business": BriefcaseBusiness,
   "stethoscope": Stethoscope,
